@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
+
+:root {
+  color-scheme: dark;
+  --page: #141c27;
+  --surface: #202b39;
+  --surface-raised: #283646;
+  --line: #3b4b5e;
+  --text: #edf2f7;
+  --muted: #a8b5c4;
+  --accent: #8da9c5;
+  --accent-strong: #a9c0d8;
+  --error-bg: #472d37;
+  --error: #ffd6df;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  background: var(--page);
+  color: var(--text);
+}
+
+.screen {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(16px, 4vw, 32px);
+  background: radial-gradient(ellipse at 50% 0%, #26364a 0%, var(--page) 62%);
+}
+
+.card {
+  width: 100%;
+  max-width: 440px;
+  padding: clamp(24px, 6vw, 36px);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  box-shadow: 0 24px 70px rgba(4, 9, 16, .38);
+}
+
+h1 {
+  margin: 0 0 24px;
+  color: var(--text);
+  font-family: Manrope, 'DM Sans', sans-serif;
+  font-size: clamp(1.7rem, 5vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -.04em;
+}
+
+input {
+  display: block;
+  width: 100%;
+  min-height: 50px;
+  margin-bottom: 14px;
+  padding: 13px 15px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  outline: none;
+  background: #192330;
+  color: var(--text);
+  font: inherit;
+  font-size: 16px;
+  transition: border-color .18s, box-shadow .18s;
+}
+
+input::placeholder { color: #8d9bab; }
+input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(141, 169, 197, .18); }
+
+button {
+  width: 100%;
+  min-height: 50px;
+  margin-bottom: 10px;
+  padding: 12px 16px;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  background: var(--accent);
+  color: #14202c;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .16s, transform .16s, opacity .16s, border-color .16s;
+}
+
+button:hover:not(:disabled) { background: var(--accent-strong); }
+button:active:not(:disabled) { opacity: .72; transform: scale(.985); }
+button:focus-visible { outline: 3px solid rgba(169, 192, 216, .55); outline-offset: 2px; }
+button:disabled { opacity: .42; cursor: not-allowed; }
+button.secondary, button.google {
+  background: var(--surface-raised);
+  color: var(--text);
+  border-color: var(--line);
+}
+button.secondary:hover:not(:disabled), button.google:hover:not(:disabled) { background: #314255; }
+button.danger { background: #52677d; color: white; }
+
+.error {
+  margin: 2px 0 14px;
+  padding: 11px 13px;
+  border: 1px solid #754756;
+  border-radius: 10px;
+  background: var(--error-bg);
+  color: var(--error);
+  font-size: .92rem;
+  line-height: 1.45;
+}
+
+.label { margin: 15px 0 3px; color: var(--muted); font-size: .82rem; font-weight: 600; }
+.value { margin: 0; color: var(--text); font-size: 1rem; overflow-wrap: anywhere; }
+.divider { margin: 7px 0 15px; color: var(--muted); text-align: center; font-size: .9rem; }
+.avatar { width: 72px; height: 72px; margin-bottom: 8px; border: 2px solid var(--line); border-radius: 50%; object-fit: cover; }
+
+@media (min-width: 768px) {
+  .card { max-width: 480px; padding: 40px; }
+}
